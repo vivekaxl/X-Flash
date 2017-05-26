@@ -53,13 +53,15 @@ def non_dominated_sort(raw_dependents, lessismore):
 
 
 if __name__ == "__main__":
-    data = read_file("./Data/Sac1_2.csv")
+    data = read_file("../Data/llvm_input.csv")
     dependents = [d.objectives for d in data]
-    pf_indexes = non_dominated_sort(dependents, [False, True])
+    pf_indexes = non_dominated_sort(dependents, [False, False])
     pf = [dependents[i] for i in pf_indexes]
     pf = sorted(pf, key=lambda x:x[0])
 
-    # import matplotlib.pyplot as plt
-    # plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
-    # plt.plot([p[0] for p in pf], [p[1] for p in pf], color='green', marker='o')
-    # plt.show()
+    print len(pf)
+
+    import matplotlib.pyplot as plt
+    plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
+    plt.plot([p[0] for p in pf], [p[1] for p in pf], color='green', marker='o')
+    plt.show()
