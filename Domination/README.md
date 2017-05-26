@@ -1,0 +1,1 @@
+This folder contain scripts which will be used to identify continious domination techniques.
